@@ -8,7 +8,7 @@
 
 UCLASS(ABSTRACT)
 class AURA_API ATCharacterBase : public ACharacter
-{
+{ 
 	GENERATED_BODY()
 
 public:
