@@ -1,6 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "AuraEnemy.h"
+#include "Character/AuraEnemy.h"
 
 #include "Aura/Aura.h"
 
@@ -19,6 +19,6 @@ void AAuraEnemy::HighlightActor()
 
 void AAuraEnemy::UnHighlightActor()
 {
-	GetMesh()->SetRenderCustomDepth(true);
+	GetMesh()->SetRenderCustomDepth(false);
 	Weapon->SetRenderCustomDepth(false);
 }
