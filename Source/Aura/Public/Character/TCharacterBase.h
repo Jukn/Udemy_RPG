@@ -3,16 +3,22 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "AbilitySystemInterface.h"
 #include "GameFramework/Character.h"
 #include "TCharacterBase.generated.h"
 
+class UAbilitySystemComponent;
+class UAttributeSet;
+
 UCLASS(ABSTRACT)
-class AURA_API ATCharacterBase : public ACharacter
+class AURA_API ATCharacterBase : public ACharacter, public IAbilitySystemInterface
 { 
 	GENERATED_BODY()
 
 public:
 	ATCharacterBase();
+	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const;
+	UAttributeSet* GetAttributeSet() const { return AttributeSet; }
 
 protected:
 	// Called when the game starts or when spawned
@@ -20,4 +26,10 @@ protected:
 
 	UPROPERTY(EditAnyWhere, Category = "Combat");
 	TObjectPtr<USkeletalMeshComponent> Weapon;
+
+	UPROPERTY()
+	TObjectPtr<UAbilitySystemComponent> AbilitySystemComponent;
+
+	UPROPERTY()
+	TObjectPtr<UAttributeSet> AttributeSet;
 };
