@@ -25,9 +25,16 @@ void AAuraPlayerController::BeginPlay()
 	check(AuraContext);
 
 	UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(GetLocalPlayer());
-	check(Subsystem);
-
-	Subsystem->AddMappingContext(AuraContext, 0);
+	/**
+	*	서버에서는 모든 플레이어 컨트롤을 가지고 있지만
+	*	클라이언트에서는 각각의 플레이어 컨트롤만을 가지고 있다.
+	*	따라서 플레이어 컨트롤을 가지고 있는지 확인하고 맵핑하는 과정이 필요
+	*	멀티플레이 환경에서 주의해야할 사항
+	**/
+	if (Subsystem)
+	{
+		Subsystem->AddMappingContext(AuraContext, 0); 
+	}
 
 	bShowMouseCursor = true;
 	DefaultMouseCursor = EMouseCursor::Default;
