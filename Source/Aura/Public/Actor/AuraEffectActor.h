@@ -4,9 +4,11 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+//#include "AbilitySystem/AuraAbilitySystemComponent.h"
+#include "GameplayEffectTypes.h"
 #include "AuraEffectActor.generated.h"
-#include "AbilitySystem/AuraAbilitySystemComponent.h"
 
+class uAbilitySystemComponent;
 class UGameplayEffect;
 
 UENUM(BlueprintType)
@@ -93,7 +95,7 @@ protected:
 	TSubclassOf<UGameplayEffect> DurationGameplayEffectClass;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Applied Effects")
-	EEffectApplicationPolicy DurationApplicationPolicy = EEffectApplicationPolicy::DoNotApply;
+	EEffectApplicationPolicy DurationEffectApplicationPolicy = EEffectApplicationPolicy::DoNotApply;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Applied Effects")
 	TSubclassOf<UGameplayEffect> InfiniteGameplayEffectClass;
@@ -104,7 +106,10 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Applied Effects")
 	EEffectRemovePolicy InfiniteEffectRemovePolicy = EEffectRemovePolicy::RemoveOnEndOverlap;
 
-	TMap<FActiveGameplayEffectHandle, UAuraAbilitySystemComponent>
+	TMap<FActiveGameplayEffectHandle, UAbilitySystemComponent*> ActiveEffectHandles;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Applied Effects")
+	float ActorLevel = 1.f;
 
 private:
 

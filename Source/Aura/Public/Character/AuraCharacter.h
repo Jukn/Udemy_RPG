@@ -3,14 +3,14 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "TCharacterBase.h"
+#include "AuraCharacterBase.h"
 #include "AuraCharacter.generated.h"
 
 /**
  * 
  */
 UCLASS()
-class AURA_API AAuraCharacter : public ATCharacterBase
+class AURA_API AAuraCharacter : public AAuraCharacterBase
 {
 	GENERATED_BODY()
 
@@ -20,5 +20,5 @@ public:
 	virtual void OnRep_PlayerState() override;
 
 private:
-	void InitAbilityActorInfo();
+	virtual void InitAbilityActorInfo() override;
 };

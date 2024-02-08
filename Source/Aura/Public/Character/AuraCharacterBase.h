@@ -5,18 +5,18 @@
 #include "CoreMinimal.h"
 #include "AbilitySystemInterface.h"
 #include "GameFramework/Character.h"
-#include "TCharacterBase.generated.h"
+#include "AuraCharacterBase.generated.h"
 
 class UAbilitySystemComponent;
 class UAttributeSet;
 
 UCLASS(ABSTRACT)
-class AURA_API ATCharacterBase : public ACharacter, public IAbilitySystemInterface
+class AURA_API AAuraCharacterBase : public ACharacter, public IAbilitySystemInterface
 { 
 	GENERATED_BODY()
 
 public:
-	ATCharacterBase();
+	AAuraCharacterBase();
 	virtual UAbilitySystemComponent* GetAbilitySystemComponent() const;
 	UAttributeSet* GetAttributeSet() const { return AttributeSet; }
 
@@ -32,4 +32,7 @@ protected:
 
 	UPROPERTY()
 	TObjectPtr<UAttributeSet> AttributeSet;
+
+
+	virtual void InitAbilityActorInfo();
 };
