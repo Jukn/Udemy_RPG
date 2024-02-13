@@ -36,6 +36,6 @@ private:
 
 	void Move(const FInputActionValue& InputActionValue);		//데이터를 제공하는 입력 작업에 대한 이동을 바인딩하기 위한 함수
 	void CursorTrace();
-	TObjectPtr<IEnemyInterface> LastActor;
-	TObjectPtr<IEnemyInterface> ThisActor;
+	IEnemyInterface* LastActor;
+	IEnemyInterface* ThisActor;
 };
