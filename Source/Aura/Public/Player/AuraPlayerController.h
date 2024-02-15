@@ -57,7 +57,7 @@ private:
 
 	FVector CachedDestination = FVector::ZeroVector;
 	float FollowTime = 0.f;
-	float ShortPressThresshold = 0.f;
+	float ShortPressThresshold = 0.5f;
 	bool bAutoRunning = false;
 	bool bTargeting = false;
 
