@@ -2,7 +2,7 @@
 
 
 #include "AbilitySystem/AuraAttributeSet.h"
-
+#include "AuraGameplayTags.h"
 #include "AbilitySystemBlueprintLibrary.h"
 #include "GameFramework/Character.h"
 #include "GameplayEffectExtension.h"
